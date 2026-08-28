@@ -1,0 +1,41 @@
+{
+  "name": "SolarFlow CRM Framework",
+  "short_name": "SolarFlow",
+  "description": "Multi-tenant white-label CRM for Solar and service industries",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f8fafc",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=192&auto=format&fit=crop&q=80",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=512&auto=format&fit=crop&q=80",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Lead",
+      "url": "/leads?action=create",
+      "icons": [{ "src": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=96&auto=format&fit=crop&q=80", "sizes": "96x96" }]
+    },
+    {
+      "name": "Site Survey",
+      "url": "/surveys",
+      "icons": [{ "src": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=96&auto=format&fit=crop&q=80", "sizes": "96x96" }]
+    },
+    {
+      "name": "My Tickets",
+      "url": "/tickets?filter=mine",
+      "icons": [{ "src": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=96&auto=format&fit=crop&q=80", "sizes": "96x96" }]
+    }
+  ]
+}
