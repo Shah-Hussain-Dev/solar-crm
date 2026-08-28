@@ -167,14 +167,15 @@ export interface SubsidyTracker {
 export interface PaymentInstallment {
   id: string;
   projectId: string;
-  customerId: string;
-  title: string;
+  customerId?: string;
+  title?: string;
   amount: number;
   status: 'pending' | 'paid' | 'overdue';
   dueDate: string;
   paidDate?: string;
   paymentMode?: 'cash' | 'bank_transfer' | 'cheque' | 'upi';
   referenceNo?: string;
+  method?: string;
 }
 
 export interface Ticket {
@@ -654,6 +655,7 @@ interface CRMState {
 
   // Mutators/Actions
   setBranding: (branding: Partial<BrandingSettings>) => void;
+  updateBranding: (branding: Partial<BrandingSettings>) => void;
   updateRolePermissions: (role: keyof PermissionMatrix, module: keyof RolePermissions, perms: string[]) => void;
   
   // Custom Fields
@@ -736,6 +738,9 @@ export const useCRMStore = create<CRMState>()(
       offlineQueue: [],
 
       setBranding: (branding) =>
+        set((state) => ({ branding: { ...state.branding, ...branding } })),
+
+      updateBranding: (branding) =>
         set((state) => ({ branding: { ...state.branding, ...branding } })),
 
       updateRolePermissions: (role, module, perms) =>

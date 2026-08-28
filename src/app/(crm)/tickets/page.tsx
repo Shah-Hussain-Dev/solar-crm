@@ -30,11 +30,13 @@ export default function ServiceTicketsPage() {
     if (!title) return;
     addTicket({
       projectId: projectId || projects[0]?.id || 'prj-1',
+      customerId: 'cust-1',
       title: title,
       description: 'Customer raised issue via mobile support ticket.',
       priority: 'high',
       status: 'open',
-      assignedTo: assignedTech || 'usr-1'
+      assigneeId: assignedTech || 'usr-1',
+      dueDate: new Date().toISOString().split('T')[0]
     });
     setModalOpen(false);
     setTitle('');
@@ -97,7 +99,7 @@ export default function ServiceTicketsPage() {
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
                 {tickets.map((t) => {
                   const proj = projects.find((p) => p.id === t.projectId);
-                  const tech = users.find((u) => u.id === t.assignedTo);
+                  const tech = users.find((u) => u.id === t.assigneeId);
                   const isOpen = t.status === 'open';
                   return (
                     <tr key={t.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">

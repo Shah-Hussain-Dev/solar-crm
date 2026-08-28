@@ -199,11 +199,11 @@ export default function SurveyDetailPage() {
               <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Status</label>
               <select
                 value={status}
-                onChange={(e) => setStatus(e.target.value)}
+                onChange={(e) => setStatus(e.target.value as 'pending' | 'completed')}
                 className="mt-1 w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-md p-2.5 text-sm font-semibold outline-none focus:border-blue-500"
               >
-                <option value="Completed">Completed</option>
-                <option value="Scheduled">Scheduled</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending / Scheduled</option>
               </select>
             </div>
 
